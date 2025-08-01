@@ -31,6 +31,20 @@ body
     height: 45px;
 }
 
+#btnFS
+{
+    position: fixed;
+    top: 12%;
+    right: 0px;
+    z-index: 99;
+    background-color: #3abefb;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    width: 45px;
+    height: 45px;
+}
+
+
 #navBar
 {
     display: grid;
@@ -541,9 +555,9 @@ iframe
 {
     position: absolute;
     width: 15vw;
-    height: 4vh;
+    height: 45px;
     top: 0px;
-    right: 0px;
+    right: 45px;
     font-size: 2vw;
     object-fit: cover;
     font-size: calc(1vw + 1vh);
@@ -617,6 +631,13 @@ iframe
     #hamIcon
     {
         display: block;
+        justify-content: center; /* centers horizontally */
+        align-items: center;     /* centers vertically */
+    }
+
+    #btnFS
+    {
+        top: 0px;
     }
 
     #closeIcon
@@ -632,13 +653,6 @@ iframe
     .button
     {
         font-size: 20px;
-    }
-
-    #hamIcon
-    {
-        display: block;
-        justify-content: center; /* centers horizontally */
-        align-items: center;     /* centers vertically */
     }
 
     .slideContainer

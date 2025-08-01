@@ -1,735 +1,494 @@
-*
+////// Ham Icon and Buttons
+// Variables
+const page1btn = document.querySelector("#page1btn");
+const page2btn = document.querySelector("#page2btn");
+const page3btn = document.querySelector("#page3btn");
+const page4btn = document.querySelector("#page4btn");
+const page5btn = document.querySelector("#page5btn");
+const hamIcon = document.querySelector("#hamIcon");
+const closeIcon = document.querySelector("#closeIcon");
+const navBar = document.querySelector("#navBar");
+var allButtons = document.querySelectorAll(".button");
+var allpages = document.querySelectorAll(".page");
+var buttonPopSound = new Audio("Audio/PopSFX.mp3");
+var cardFlipSound = new Audio("Audio/CardFlipSFX.mp3");
+
+// Hides all subtopic pages
+function hideall()
 {
-    font-family: NatGeoFont;
-}
-
-html
-{
-    background-color: #002B36;
-}
-
-body
-{
-    margin: 0px;
-}
-
-@font-face {
-    font-family: NatGeoFont;
-    src: url('Fonts/Pigiarniq.ttf');
-}
-
-#hamIcon
-{
-    display: none;
-    position: fixed;
-    top: 0px;
-    z-index: 99;
-    background-color: #3abefb;
-    color: rgb(0, 0, 0);
-    font-size: 30px;
-    width: 45px;
-    height: 45px;
-}
-
-#navBar
-{
-    display: grid;
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    height: 12%;
-    margin: 0px;
-    padding: 0px;
-    background-color: #026773;
-    align-items: center;
-    z-index: 100;
-    grid-template-columns: repeat(5, 1fr);
-    transition: transform 0.5s ease-in-out;
-    gap: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#navSpacer
-{
-    position: relative;
-    width: 100%;
-    height: 12vh;
-    margin: 0px;
-    padding: 0px;
-}
-
-.button
-{
-    background-color: #3abefb;
-    border-radius: 6px;
-    width: 100%;
-    min-height: 6vh;
-    height: min-content;
-    font-size: 16px;
-    font-family: NatGeoFont;
-    transition: background-color 0.3s ease;
-    transition: transform 0.3s ease-in-out;
-}
-
-.button:hover
-{
-    background-color: #f4a300;
-    transform: scale(1.05);
-}
-
-#closeIcon
-{
-    background-color: #fb3a3a;
-    border-radius: 6px;
-    width: 100%;
-    min-height: 6vh;
-    height: min-content;
-    font-size: 16px;
-    font-family: NatGeoFont;
-    transition: background-color 0.3s ease;
-    transition: transform 0.3s ease-in-out;
-    display: none;
-}
-
-#closeIcon:hover
-{
-    background-color: #f4a300;
-    transform: scale(1.05);
-}
-
-main
-{
-    margin: 0px;
-    padding: 0px;
-}
-
-nav ul li
-{
-    display: inline;
-}
-
-/*Home Page*/
-#page1
-{
-    margin: 0px;
-    padding: 0px;
-}
-
-.slideContainer
-{
-    position: relative;
-    background-color: #026773;
-    height: 88vh;
-    z-index: 10;
-}
-
-.slideContainer::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background: radial-gradient(
-    ellipse,
-    rgba(0, 0, 0, 0) 50%,
-    rgba(0, 0, 0, 0.5) 90%,
-    rgba(0, 0, 0, 0.8) 100%
-    );
-    z-index: 9;
-}
-
-.slide
-{
-    aspect-ratio: 16 / 9;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    position: absolute;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-    filter: brightness(80%);
-    z-index: 0;
-}
-
-.showSlide
-{
-    opacity: 1;
-    display: block;
-}
-
-.title
-{
-    margin: 0px;
-    color: white;
-    font-size: 4vw;
-    font-family: NatGeoFont;
-    text-shadow: rgb(66, 66, 66) 5px 3px;
-    font-size: calc(3vh + 3vw);
-}
-
-#homePageTitle
-{
-    position: absolute;
-    translate: 15vw 35vh;
-    z-index: 15;
-}
-
-#homepageSpacer
-{
-    display: block;
-    height: 100vh;
-    z-index: 0;
-}
-
-#QRDescription
-{
-    text-shadow: none;
-    color: white;
-    text-align: center;
-}
-
-.centeredBox
-{
-    box-sizing: border-box;
-    padding: 4%;
-    align-self: center;
-    max-width: 100%;
-    height: auto;
-}
-
-.flexBoxDown
-{
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding: 4%;
-    gap: 20px;
-    justify-content: space-evenly;
-    align-content: space-around;
-}
-
-.flexBoxRight
-{
-    display: flex;
-    flex-direction: row;
-    box-sizing: border-box;
-    gap: 1.25rem;
-    justify-content: space-evenly;
-    align-content: space-around;
-}
-
-.flexBoxLeft
-{
-    display: flex;
-    flex-direction: row-reverse;
-    box-sizing: border-box;
-    gap: 20px;
-    justify-content: space-evenly;
-    align-content: space-around;
-}
-
-#page1 .textFlexBox
-{
-    border-radius: 18px;
-    background-color: #ffaa00;
-    border: 3px solid #785000;
-    box-shadow: 0 0px 8px 2px rgba(0, 0, 0, 0.25);
-    padding: 4%;
-    max-width: 50%;
-}
-
-#page1 .imageFlexBox
-{
-    border: 3px solid #785000;
-    box-shadow: 0 0px 8px 2px rgba(0, 0, 0, 0.25);
-    transition: transform 0.3s ease-in-out;
-    max-width: 50%;
-    height: auto;
-    object-fit: cover;
-}
-
-#page1 .imageFlexBox:hover
-{
-    cursor: pointer;
-    background-color: #f4a300;
-    transform: scale(1.05);
-}
-
-.description
-{
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-    padding-left: 4%;
-    padding-right: 4%;
-}
-
-h2
-{
-    font-size: calc(2vh + 1vw);
-}
-
-h3
-{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: calc(2vh + 2vw);
-    font-style: italic;
-    text-shadow: rgb(209, 115, 0) 2px 2px;
-}
-
-p
-{
-    font-size: calc(1vh + 1vw);
-}
-
-/*Page 2*/
-
-#page2 h3
-{
-    font-family: 'Times New Roman', Times, serif;
-    color: rgb(255, 196, 0);
-    text-shadow: #000000 3px 2px;
-    text-align: center;
-}
-
-#page2 p
-{
-    padding-left: 4%;
-    padding-right: 4%;
-    color: white;
-    text-shadow: #000000 3px 2px;
-    font-size: calc(1.4vh + 0.95vw);
-}
-
-#page2 .flexBoxDown
-{
-    padding: 0px;
-    gap: 0px;
-}
-
-#page2 .flexBoxRight
-{
-    gap: 0px;
-    height: 88vh;
-}
-
-#page2 .flexBoxLeft
-{
-    gap: 0px;
-    height: 88vh;
-}
-
-#page2 .flexBoxRight .textFlexBox
-{
-    border-radius: 0px;
-    padding: 0px;
-    width: 100%;
-    box-shadow: 8px 0px 8px -4px rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-
-#page2 .flexBoxLeft .textFlexBox
-{
-    border-radius: 0px;
-    padding: 0px;
-    width: 100%;
-    box-shadow: -8px 0px 8px -4px rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-
-#page2 .imageFlexBox
-{
-    transition: transform 0.3s ease-in-out, translate 0.3s ease-in-out;
-    min-width: 50%;
-    max-width: 50%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.openImage
-{
-    transform: scale(1.05);
-    translate: -50% -8%;
-    z-index: 101;
-    object-fit: contain;
-}
-
-/*Page 3*/
-
-#page3 h3
-{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 2vw;
-    font-style: italic;
-    text-shadow: rgb(209, 115, 0) 2px 2px;
-    padding: 0px;
-}
-
-.flexBoxRight
-{
-    perspective: 1000px;
-}
-
-#page3 p
-{
-    font-size: 1vw;
-}
-
-.flipCard
-{
-    position: relative;
-    background-color: transparent;
-    width: 27vw;
-    height: 27vw;
-    transition: transform 0.8s ease-in-out;
-    transform-style: preserve-3d;
-}
-
-.cardOuter
-{
-    position: relative;
-    transition: transform 0.3s ease-in-out;
-    transform-style: preserve-3d;
-}
-
-.cardOuter:hover
-{
-    transform: scale(1.05);
-}
-
-/* Image */
-.flipCardFront
-{
-    position: absolute;
-    border-radius: 18px;
-    background-color: #ffaa00;
-    border: 3px solid #785000;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    backface-visibility: hidden;
-    object-fit: cover;
-    cursor: pointer;
-}
-
-/* Text */
-.flipCardBack
-{
-    position: absolute;
-    border-radius: 18px;
-    background-color: #ffaa00;
-    border: 3px solid #785000;
-    box-sizing: border-box;
-    padding: 4%;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    transform: rotateY(180deg);
-    cursor: pointer;
-}
-
-/*Page 4*/
-#page4 .flexBoxDown
-{
-    gap: calc(4vh + 4vw);
-}
-
-#page4 .textFlexBox
-{
-    border-radius: 18px;
-    background-color: #ffaa00;
-    border: 3px solid #785000;
-    box-shadow: 0 0px 8px 2px rgba(0, 0, 0, 0.25);
-    padding: 4%;
-    max-width: 50%;
-}
-
-#page4 .imageFlexBox
-{
-    border: 3px solid #785000;
-    box-shadow: 0 0px 8px 2px rgba(0, 0, 0, 0.25);
-    transition: transform 0.3s ease-in-out;
-    max-width: 50vw;
-    height: auto;
-    object-fit: cover;
-}
-
-#page4 .imageFlexBox
-{
-    border: 3px solid #785000;
-    box-shadow: 0 0px 8px 2px rgba(0, 0, 0, 0.25);
-    transition: transform 0.3s ease-in-out;
-    width: 100%;
-    height: 85%;
-    object-fit: cover;
-}
-
-p .description
-{
-    font-family: 'Courier New', Courier, monospace;
-    font-size: calc(1vh + 1vw);
-}
-
-iframe
-{
-    min-width: 90%;
-    aspect-ratio: 16 / 9;
-    height: auto;
-}
-
-.textBox
-{
-    border-radius: 18px;
-    background-color: #ffaa00;
-    border: 3px solid #785000;
-    box-shadow: 0 0px 8px 2px rgba(0, 0, 0, 0.25);
-    padding: 4%;
-}
-
-/*Pet Simulator*/
-#gameBackgroundImage
-{
-    position: absolute;
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-    user-select: none;
-}
-
-#gameTitle
-{
-    box-sizing: border-box;
-    position: absolute;
-    background-color: #00c60d;
-    color: rgb(0, 69, 0);
-    border: 3px solid rgb(0, 88, 21);
-    min-height: 45px;
-    z-index: 10;
-    height: min-content;
-    margin: 0px;
-    justify-self: center;
-    align-content: center;
-    font-size: calc(1vh + 1vw);
-}
-
-#page5
-{
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 88vh;
-    background-color: #eef;
-}
-
-#moneyDisplay
-{
-    box-sizing: border-box;
-    position: absolute;
-    align-content: center;
-    margin: 0px;
-    background-color: gold;
-    color: green;
-    font-size: calc(1vw + 1.5vh);
-    padding: 0.25vw;
-    border: 3px solid rgb(255, 166, 0);
-    z-index: 2;
-    min-height: 45px;
-    font-family: monospace;
-    font-weight: bold;
-}
-
-#buyMenuButton
-{
-    position: absolute;
-    width: 15vw;
-    height: 4vh;
-    top: 0px;
-    right: 0px;
-    font-size: 2vw;
-    object-fit: cover;
-    font-size: calc(1vw + 1vh);
-    z-index: 2;
-}
-
-#buyMenu
-{
-    position: absolute;
-    background-color: rgba(128, 128, 128, 0.65);
-    top: 10%;
-    width: 100%;
-    height: 40vh;
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-    z-index: -10;
-}
-
-.pet {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    border-radius: 90px;
-    cursor: pointer;
-    transition: left 5s, top 5s;
-}
-
-.petName {
-    position: absolute;
-    top: -30px;
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-    width: 100px;
-    height: 50px;
-    text-align: center;
-    justify-self: center;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: large;
-    z-index: 1;
-}
-
-.petImg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    user-select: none;
-}
-
-.moneyClick
-{
-    position: absolute;
-    color: rgb(58, 255, 58);
-    width: 100px;
-    height: 50px;
-    text-align: center;
-    justify-self: center;
-    transition: all 1s ease-in-out;
-    user-select: none;
-}
-
-@media screen and (max-width: 800px)
-{
-    /*make menu items vertical*/
-    nav ul li
+    for(let onepage of allpages)
     {
-        display: block;
+        //go through all subtopic pages
+        onepage.style.display="none"; //hide it
     }
+}
+
+// Show the selected page number
+function show(pgno)
+{
+    if (pgno == 5)
+    {
+
+    }
+    else
+    {
+
+    }
+    hideall();
+    //select the page based on the parameter passed in
+    let onepage = document.querySelector("#page" + pgno);
+    onepage.style.display= "block"; //show the page
+}
+
+// Toggle buttons
+function revealButtonDisplay()
+{
+    navBar.style.transform = "translateY(0%)";
+}
+
+function hideButtonDisplay()
+{
+    navBar.style.transform = "translateY(-100%)";
+}
+
+////// Background Image Changing
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const slideIntervalTime = 5000;
+
+// Change displayed image to next one in array
+function showNextSlide()
+{
+    // Hide all slides
+    slides.forEach(slide => slide.classList.remove('showSlide'));
+
+    // Show the current slide
+    slides[currentSlide].classList.add('showSlide');
+
+    // Move to next slide
+    currentSlide = (currentSlide + 1) % slides.length;
+}
+
+////// Home Page Links
+const goTo1 = document.querySelector("#goTo1");
+const goTo2 = document.querySelector("#goTo2");
+const goTo3 = document.querySelector("#goTo3");
+
+////// Flipping Cards
+var allcards = document.querySelectorAll(".flipCard");
+var html = document.querySelector("html");
+let imageScale = 2;
+let innerHeightMultiplier = 0.56;
+let cardHeightEven = true;
+
+// Flips the card over and sends it to the center of the screen
+function flipCard(card) {
+
+    if (card.classList.contains('flipped'))
+    {
+        card.classList.remove('flipped');
+        card.style.transform = `translate(0px, 0px)`
+        html.style.overflowY = `visible`;
+    }
+    else
+    {
+        cardFlipSound.cloneNode(true).play();
+
+        allcards.forEach(cardTemp => {
+            cardTemp.classList.remove('flipped');
+            cardTemp.style.transform = `translate(0px, 0px)`
+            cardTemp.style.zIndex = `0`;
+            cardTemp.parentElement.style.zIndex = `0`;
+            cardTemp.parentElement.parentElement.style.zIndex = `0`;
+            html.style.overflowY = `visible`;
+
+            const lastChild = card.lastElementChild;
+            lastChild.style.height = '100%';
+        })  
+        
+        requestAnimationFrame(() => {
+            const rect = card.getBoundingClientRect();
+            // Calculate element center
+            const cardCenterX = rect.left + rect.width / 2;
+            const cardCenterY = rect.top + rect.height / 2;
+            // Calculate screen center
+            const screenCenterX = window.innerWidth / 2;
+            const screenCenterY = window.innerHeight * innerHeightMultiplier;
+            // Calculate shift needed
+            const offsetX = screenCenterX - cardCenterX;
+            const offsetY = screenCenterY - cardCenterY;
+            // Apply transform to center it
+            card.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${imageScale}) rotateY(180deg)`;
+            card.style.zIndex = `99`;
+            card.parentElement.style.zIndex = `99`;
+            card.parentElement.parentElement.style.zIndex = `99`;
+            card.classList.add('flipped');
+            html.style.overflowY = `hidden`;
+
+            const lastChild = card.lastElementChild;
+            if (!cardHeightEven)
+            {
+                lastChild.style.height = '20vh';
+            }
+        });
+    }
+}
+
+////// Pet Simulator
+const shopMenuButton = document.querySelector("#buyMenuButton");
+const shop = document.querySelector("#buyMenu");
+const buyPetSubmit = document.querySelector("#buyPet");
+const moneyDisplay = document.querySelector("#moneyDisplay");
+let money = 15;
+var crabSound = new Audio("Audio/CrabSound.mp3");
+var scorpionSound = new Audio("Audio/ScorpionSound.mp3");
+var spiderSound = new Audio("Audio/SpiderSound.mp3");
+var centipedeSound = new Audio("Audio/CentipedeSound.mp3");
+var beeSound = new Audio("Audio/BeeSound.mp3");
+
+// Toggles Menu Ham Icon
+function toggleBuyMenu()
+{
+    if (shop.style.opacity == 0)
+    {
+        shop.style.opacity = 1;
+        shop.style.pointerEvents = "auto";
+        shop.style.zIndex = "2";
+    }
+    else
+    {
+        shop.style.opacity = 0;
+        shop.style.pointerEvents = "none";
+        shop.style.zIndex = "-10";
+    }
+}
+// Spawn Pet
+function spawnPet(name, type) {
+    //// Actual pet creation
+    const pet = document.createElement('div');
+    pet.classList.add('pet');
+
+    // Create the name tag
+    const nameTag = document.createElement('div');
+    nameTag.classList.add('petName');
+    nameTag.innerHTML = name;
+
+    // Create the image
+    const img = document.createElement('img');
+    img.classList.add('petImg');
+
+    // Position randomly
+    const playArea = document.getElementById('page5');
+    const petSize = 80;
+    const x = Math.random() * (playArea.clientWidth - petSize);
+    const y = Math.random() * (playArea.clientHeight - petSize);
+    pet.style.left = x + 'px';
+    pet.style.top = y + 'px';
+
+    // Assemble pet element
+    pet.appendChild(nameTag);
+    pet.appendChild(img);
+
+    // Set pet image and behaviour based on type
+    if (type == "Crab")
+    {
+        let moneyEarnedByPet = 1;
+        img.src = 'Images/Crab1.jpg';
+        pet.addEventListener('click', () => {crabSound.cloneNode(true).play();});
+
+        // Earning money
+        setInterval(() => {
+            document.getElementById('moneyDisplay').innerText = `Money: $${money}`;
+            petEarnsMoney(pet, moneyEarnedByPet, true);
+        }, 2000);
     
-    /* unhide menu icon */
-    #hamIcon
+        // Moving around
+        setInterval(() => {
+            pet.style.left = Math.random() * (playArea.clientWidth - petSize) + 'px';
+            pet.style.top = Math.random() * (playArea.clientHeight - petSize) + 'px';
+            if (Math.random() < 0.1)
+            {
+                crabSound.cloneNode(true).play();
+            }
+        }, Math.random() * 8000 + 7000);
+
+        // Click pet for money
+        addPetClickEvent(pet, moneyEarnedByPet);
+    }
+    else if (type == "Scorpion")
     {
-        display: block;
+        let moneyEarnedByPet = 5;
+        img.src = 'Images/ScorpionPet.jpg';
+        pet.addEventListener('click', () => {scorpionSound.cloneNode(true).play();});
+
+        // Earning money
+        setInterval(() => {
+            document.getElementById('moneyDisplay').innerText = `Money: $${money}`;
+            petEarnsMoney(pet, moneyEarnedByPet, true);
+        }, 1500);
+    
+        // Moving around
+        setInterval(() => {
+            pet.style.left = Math.random() * (playArea.clientWidth - petSize) + 'px';
+            pet.style.top = Math.random() * (playArea.clientHeight - petSize) + 'px';
+            if (Math.random() < 0.1)
+            {
+                scorpionSound.cloneNode(true).play();
+            }
+        }, Math.random() * 8000 + 7000);
+
+        // Click pet for money
+        addPetClickEvent(pet, moneyEarnedByPet);
+    }
+    else if (type == "Spider")
+    {
+        let moneyEarnedByPet = 30;
+        img.src = 'Images/SpiderPet.webp';
+        pet.addEventListener('click', () => {spiderSound.cloneNode(true).play();});
+
+        // Earning money
+        setInterval(() => {
+            document.getElementById('moneyDisplay').innerText = `Money: $${money}`;
+            petEarnsMoney(pet, moneyEarnedByPet, true);
+        }, 1000);
+    
+        // Moving around
+        setInterval(() => {
+            pet.style.left = Math.random() * (playArea.clientWidth - petSize) + 'px';
+            pet.style.top = Math.random() * (playArea.clientHeight - petSize) + 'px';
+            if (Math.random() < 0.1)
+            {
+                spiderSound.cloneNode(true).play();
+            }
+        }, Math.random() * 8000 + 7000);
+
+        // Click pet for money
+        addPetClickEvent(pet, moneyEarnedByPet);
+    }
+    else if (type == "Centipede")
+    {
+        let moneyEarnedByPet = 70;
+        img.src = 'Images/CentipedePet.webp';
+        pet.addEventListener('click', () => {centipedeSound.cloneNode(true).play();});
+
+        // Earning money
+        setInterval(() => {
+            document.getElementById('moneyDisplay').innerText = `Money: $${money}`;
+            petEarnsMoney(pet, moneyEarnedByPet, true);
+        }, 750);
+    
+        // Moving around
+        setInterval(() => {
+            pet.style.left = Math.random() * (playArea.clientWidth - petSize) + 'px';
+            pet.style.top = Math.random() * (playArea.clientHeight - petSize) + 'px';
+            if (Math.random() < 0.1)
+            {
+                centipedeSound.cloneNode(true).play();
+            }
+        }, Math.random() * 8000 + 7000);
+
+        // Click pet for money
+        addPetClickEvent(pet, moneyEarnedByPet);
+    }
+    else if (type == "Bee")
+    {
+        let moneyEarnedByPet = 150;
+        img.src = 'Images/BeePet.jpg';
+        pet.addEventListener('click', () => {beeSound.cloneNode(true).play();});
+
+        // Earning money
+        setInterval(() => {
+            document.getElementById('moneyDisplay').innerText = `Money: $${money}`;
+            petEarnsMoney(pet, moneyEarnedByPet, true);
+        }, 500);
+    
+        // Moving around
+        setInterval(() => {
+            pet.style.left = Math.random() * (playArea.clientWidth - petSize) + 'px';
+            pet.style.top = Math.random() * (playArea.clientHeight - petSize) + 'px';
+            if (Math.random() < 0.1)
+            {
+                beeSound.cloneNode(true).play();
+            }
+        }, Math.random() * 8000 + 7000);
+
+        // Click pet for money
+        addPetClickEvent(pet, moneyEarnedByPet);
     }
 
-    #closeIcon
+    playArea.appendChild(pet);
+
+    return pet;
+}
+// Buys pet if user has enough money
+function buyPet(name, type) {
+    let petCost;
+    
+    if (type == "Crab")
     {
-        display: block;
+        petCost = 15;
+    }
+    else if (type == "Scorpion")
+    {
+        petCost = 100;
+    }
+    else if (type == "Spider")
+    {
+        petCost = 750;
+    }
+    else if (type == "Centipede")
+    {
+        petCost = 1500;
+    }
+    else if (type == "Bee")
+    {
+        petCost = 3500;
     }
 
-    nav ul
+    if (money >= petCost) {
+        money -= petCost;
+        const newPet = spawnPet(name, type);
+    }
+    else {
+        alert("Not enough money!");
+    }
+}
+// Adds ability to click pet for money
+function addPetClickEvent(pet, moneyEarnedByPet)
+{
+    pet.addEventListener('click', () => {
+        petEarnsMoney(pet, moneyEarnedByPet, false);
+    });
+}
+// Pet earning money function
+function petEarnsMoney(pet, moneyEarnedByPet, moneyEarnedNaturally)
+{
+    // Reward text
+    const moneyIcon = document.createElement('div');
+    moneyIcon.classList.add('moneyClick');
+    moneyIcon.innerText = '$' + moneyEarnedByPet;
+
+    if (moneyEarnedNaturally == true)
     {
-        display: none;
+        moneyIcon.style.color = "rgb(0, 69, 0)";
     }
 
-    .button
-    {
-        font-size: 20px;
-    }
+    // Add to play area
+    pet.appendChild(moneyIcon);
 
-    #hamIcon
-    {
-        display: block;
-        justify-content: center; /* centers horizontally */
-        align-items: center;     /* centers vertically */
-    }
+    // Animate then remove
+    setTimeout(() => {
+        moneyIcon.style.transform = 'translateY(-50px)';
+    }, 0);
+    setTimeout(() => {
+        moneyIcon.style.opacity = '0';
+    }, 750);
+    setTimeout(() => {
+        moneyIcon.remove();
+    }, 1500);
 
-    .slideContainer
-    {
-        height: 60vh;
-    }
+    // Actually paying out the money
+    money += moneyEarnedByPet;
+    document.getElementById('moneyDisplay').innerText = `Money: $${money}`;
+}
 
-    .slideContainer::after {
-        height: 60vh;
-    }
+//// Fullscreen
+const btnFS = document.querySelector("#btnFS");
+let isFullScreen = false;
+btnFS.addEventListener("click", toggleFullscreen);
 
-    #homepageSpacer
+function toggleFullscreen() {
+    if (isFullScreen)
     {
-        height: 60vh;
+        document.exitFullscreen();
+        isFullScreen = false;
+        btnFS.innerHTML = "🗖";
     }
+    else
+    {
+        document.documentElement.requestFullscreen();
+        isFullScreen = true;
+        btnFS.innerHTML = "🗕";
+    }
+}
 
-    #navSpacer
+//// Event Listeners
+// Overall
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 800)
     {
-        height: 0px;
+        imageScale = 2;
+        innerHeightMultiplier = 0.56;
+        cardHeightEven = true;
     }
+});
+window.addEventListener("resize", () => {
+  if (window.innerWidth <= 800)
+    {
+        imageScale = 3;
+        innerHeightMultiplier = 0.44;
+        cardHeightEven = false;
+    }
+});
+// Menu buttons
+page1btn.addEventListener("click", function(){show(1); buttonPopSound.cloneNode(true).play();});
+page2btn.addEventListener("click", function(){show(2); buttonPopSound.cloneNode(true).play();});
+page3btn.addEventListener("click", function(){show(3); buttonPopSound.cloneNode(true).play();});
+page4btn.addEventListener("click", function(){show(4); buttonPopSound.cloneNode(true).play();});
+page5btn.addEventListener("click", function(){show(5); buttonPopSound.cloneNode(true).play();});
+hamIcon.addEventListener("click", revealButtonDisplay);
+closeIcon.addEventListener("click", hideButtonDisplay);
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 800)
+    {
+        revealButtonDisplay();
+    }
+});
+window.addEventListener("resize", () => {
+  if (window.innerWidth <= 800)
+    {
+        hideButtonDisplay();
+    }
+});
+// Home Page Links
+goTo1.addEventListener("click", function(){show(2);});
+goTo2.addEventListener("click", function(){show(3);});
+goTo3.addEventListener("click", function(){show(4);});
+// Flipping Cards
+allcards.forEach(card => {
+    card.addEventListener("click", () => { flipCard(card);});
+});
+// Game
+shopMenuButton.addEventListener("click", function(){toggleBuyMenu();});
+shop.addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from reloading the page
 
-    #navBar
-    {
-        height: fit-content;
-        padding-top: 8px;
-        padding-bottom: 8px;
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(6, 1fr);
-        gap: 5px;
-    }
+    // Get the selected pet type
+    const petType = document.querySelector('input[name="petType"]:checked').value;
 
-    .flexBoxRight
-    {
-        flex-direction: column;
-    }
+    // Get the entered pet name
+    const petName = document.getElementById("petNameInput").value;
+    document.getElementById("petNameInput").value = "";
+    buyPet(petName, petType);
+});
 
-    .flexBoxLeft
-    {
-        flex-direction: column;
-    }
+//// Functions to run on website open
+show(1);
 
-    #page1 .textFlexBox, #page1 .imageFlexBox, #page4 .textFlexBox, #page4 .imageFlexBox
-    {
-        max-width: 100%;
-    }
+// Alternate between slides
+showNextSlide();
+setInterval(showNextSlide, slideIntervalTime);
 
-    #page2 .flexBoxRight, #page2 .flexBoxLeft
-    {
-        height: fit-content;
-    }
-
-    #page2 .flexBoxRight .textFlexBox,#page2 .flexBoxLeft .textFlexBox
-    {
-        box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    #page2 .imageFlexBox
-    {
-        transition: all 0.3s ease-in-out;
-        max-width: none;
-        height: 100%;
-    }
-
-    #page3 .flexBoxRight
-    {
-        flex-direction: row;
-        overflow-wrap: normal;
-    }
-
-    #page3 p
-    {
-        font-size: calc(1vw + 0.2vh);
-    }
-
-    #page4 .flexBoxRight, #page4 .flexBoxLeft
-    {
-        flex-direction: column;
-    }
-
-    #page5
-    {
-        height: 100vh;
-    }
-
-    #moneyDisplay
-    {
-        left: 45px;
-    }
-
-    #websiteQR
-    {
-        display: none;
-    }
+// Sets accordingly for mobile and computer
+if (window.innerWidth > 800)
+{
+    imageScale = 2;
+    innerHeightMultiplier = 0.56;
+    cardHeightEven = true;
+}
+else
+{
+    imageScale = 3;
+    innerHeightMultiplier = 0.44;
+    cardHeightEven = false;
 }
