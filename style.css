@@ -181,6 +181,22 @@ nav ul li
     z-index: 0;
 }
 
+#QRDescription
+{
+    text-shadow: none;
+    color: white;
+    text-align: center;
+}
+
+.centeredBox
+{
+    box-sizing: border-box;
+    padding: 4%;
+    align-self: center;
+    max-width: 100%;
+    height: auto;
+}
+
 .flexBoxDown
 {
     display: flex;
@@ -243,6 +259,8 @@ nav ul li
 {
     font-family: 'Courier New', Courier, monospace;
     color: white;
+    padding-left: 4%;
+    padding-right: 4%;
 }
 
 h2
@@ -477,6 +495,22 @@ iframe
     user-select: none;
 }
 
+#gameTitle
+{
+    box-sizing: border-box;
+    position: absolute;
+    background-color: #00c60d;
+    color: rgb(0, 69, 0);
+    border: 3px solid rgb(0, 88, 21);
+    min-height: 45px;
+    z-index: 10;
+    height: min-content;
+    margin: 0px;
+    justify-self: center;
+    align-content: center;
+    font-size: calc(1vh + 1vw);
+}
+
 #page5
 {
     position: relative;
@@ -490,10 +524,11 @@ iframe
 {
     box-sizing: border-box;
     position: absolute;
+    align-content: center;
     margin: 0px;
     background-color: gold;
     color: green;
-    font-size: calc(1vw + 2vh);
+    font-size: calc(1vw + 1.5vh);
     padding: 0.25vw;
     border: 3px solid rgb(255, 166, 0);
     z-index: 2;
@@ -691,5 +726,10 @@ iframe
     #moneyDisplay
     {
         left: 45px;
+    }
+
+    #websiteQR
+    {
+        display: none;
     }
 }

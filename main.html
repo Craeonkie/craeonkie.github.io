@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<!--This is Aeon 242082C-->
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sigma Arthropods</title>
+        <link href="style.css" type="text/css" rel="stylesheet">
+        <script src="main.js" defer></script>
+    </head>
+
+    <body>
+        <nav>
+            <button id = "hamIcon"> ☰ </button>
+            <ul id = "navBar">
+                <li><button class="button" id="page1btn">Home</button></li>
+                <li><button class="button" id="page2btn">Groups of Arthropods</button></li>
+                <li><button class="button" id="page3btn">Arthropods within our culture</button></li>
+                <li><button class="button" id="page4btn">The treatment of arthropods</button></li>
+                <li><button class="button" id="page5btn">Arthropod-Safe Backyard</button></li>
+                <li><button id="closeIcon">X</button></li>
+            </ul>
+            <!--Nav Spacer-->
+            <div id = "navSpacer"></div>
+        </nav>
+
+        <main id="pagecontainer">
+            <!--Homepage-->
+            <section class="page" id="page1">
+                <!--Homepage Screen-->
+                <h2 class="title" id="homePageTitle">THE WORLD OF<br>ARTHROPODS</h2>
+                <!--Background Images-->
+                <div class="slideContainer">
+                    <img src="Images/Bee1.jpeg" alt="A Bee" class="slide">
+                    <img src="Images/Butterfly1.avif" alt="A Butterfly" class="slide">
+                    <img src="Images/Centipede1.webp" alt="A Centipede" class="slide">
+                    <img src="Images/Crab1.jpg" alt="A Crab" class="slide">
+                    <img src="Images/Scorpion1.jpg" alt="A Scorpion" class="slide">
+                    <img src="Images/Spider1.jpg" alt="A Spider" class="slide">
+                </div>
+                <!--Main Content of this page-->
+                <div class="flexBoxDown" id="page1Content">
+                    <h2 class="description">
+                        Discover how these creatures have influenced our culture, diets, and even our innate fears themselves!
+                    </h2>
+                    <div class="flexBoxRight">
+                        <section class="textFlexBox">
+                            <h3>The Roots of the Arthropod Family Tree</h3>
+                            <p>
+                                Learn about the different types of arthropods and how their branches in evolution result in the world we experience
+                                today.
+                            </p>
+                        </section>
+                        <img src='Images/ArthropodEvoTree1.jpg' class="imageFlexBox" id="goTo1" alt="Arthropod Evolution Branch">
+                    </div>
+                    <div class="flexBoxLeft">
+                        <section class="textFlexBox">
+                            <h3>Arthropods in our daily lives</h3>
+                            <p>
+                                Take a peek at appearances of arthropods within our modern day media, history and culture!
+                            </p>
+                        </section>
+                        <img src='Images/GameSpider1.jpg' class="imageFlexBox" id="goTo2" alt="Spider from a game known as Barony">
+                    </div>
+                    <div class="flexBoxRight">
+                        <section class="textFlexBox">
+                            <h3>Fear, Food, and Fascination</h3>
+                            <p>
+                                Dive deep into why very similar groups of arthropods can go from being treated as a delicacy 
+                                to being feared almost universally.
+                            </p>
+                        </section>
+                        <img src='Images/BugsAreSeafood.png' class="imageFlexBox" id="goTo3" alt="Thumbnail of a Youtube video from Adam Ragusea, popular Youtuber">
+                    </div>
+                    <section class="centeredBox" id="websiteQR">
+                        <h3 id="QRDescription">The QR Code for this website!</h3>
+                        <img src='Images/QRCode.png' class="centeredBox" alt="QR code for this website">
+                    </section>
+                </div>
+            </section>
+            <!--Groups of Arthropods-->
+            <section class="page" id="page2">
+                <h2 class="description">A variety of different Arthropods live on this planet. Here are the 4 most commonly known groups.</h2>
+                <!--Arachnids-->
+                <div class="flexBoxRight">
+                        <section class="textFlexBox">
+                            <h3>Arachnids</h3>
+                            <p>
+                                Arachnids are a class of arthropods that include spiders, scorpions, ticks, and mites. They are
+                                characterized by having eight legs, no antennae, and bodies divided into two main segments: the
+                                cephalothorax and abdomen. Unlike insects, arachnids do not have wings or compound eyes. They are
+                                predominantly terrestrial and are known for their adaptations to a wide variety of environments,
+                                from deserts to forests. Arachnids are thought to have evolved from marine ancestors, likely close
+                                relatives of horseshoe crabs, during the Silurian period over 430 million years ago. As they adapted
+                                to land, they developed features like book lungs or tracheae for breathing air, and many evolved venom
+                                for predation or defense.
+                            </p>
+                        </section>
+                        <img src='Images/Arachnids1.jpg' class="imageFlexBox" id="page2img1" alt="Various Arachnids">
+                </div>
+                <!--Crustaceans-->
+                <div class="flexBoxLeft">
+                        <section class="textFlexBox">
+                            <h3>Crustaceans</h3>
+                            <p>
+                                Crustaceans are a diverse group of primarily aquatic arthropods that include crabs,
+                                lobsters, shrimp, barnacles, and copepods. They usually have hard exoskeletons reinforced
+                                with calcium, two pairs of antennae, and specialized appendages for swimming, feeding, and walking.
+                                Crustaceans are especially dominant in marine environments and are vital parts of aquatic food chains.
+                                They likely evolved from a common ancestor shared with insects and myriapods during the Cambrian
+                                period, roughly 500 million years ago. Their early evolutionary adaptations allowed them to thrive
+                                in water, including the development of gills for underwater respiration and complex larval stages
+                                that aid in dispersal and survival.
+                            </p>
+                        </section>
+                        <img src='Images/Crustaceans1.jpg' class="imageFlexBox" id="page2img2" alt="Various Crustaceans">
+                </div>
+                <!--Hexapods-->
+                <div class="flexBoxRight">
+                        <section class="textFlexBox">
+                            <h3>Hexapods</h3>
+                            <p>
+                                Hexapods, the group that includes insects, are the most numerous and diverse class of arthropods.
+                                They are defined by having six legs, three distinct body segments (head, thorax, and abdomen), and
+                                often wings. Insects like beetles, butterflies, and ants have colonized nearly every terrestrial
+                                habitat on Earth. Hexapods are believed to have originated from a crustacean-like ancestor, which
+                                transitioned to land during the Devonian period over 400 million years ago. Their evolution of wings
+                                and compact body plans gave them a massive evolutionary advantage, allowing them to explore the air
+                                and develop highly specialized ecological roles, from pollinators to decomposers.
+                            </p>
+                        </section>
+                        <img src='Images/Hexapods1.jpg' class="imageFlexBox" id="page2img3" alt="Various Hexapods">
+                </div>
+                <!--Myriapods-->
+                <div class="flexBoxLeft">
+                        <section class="textFlexBox">
+                            <h3>Myriapods</h3>
+                            <p>
+                                Myriapods include centipedes and millipedes, and are known for their long, segmented bodies and
+                                many legs—millipedes can have hundreds! They are entirely terrestrial and mostly dwell in moist
+                                environments, where they feed on decaying plant material (in the case of millipedes) or are active
+                                predators (in the case of centipedes). Myriapods are among the earliest arthropods to colonize land,
+                                appearing around 420 million years ago. Their ancestors likely diverged from the same lineage as insects
+                                and crustaceans, but evolved in isolation as they adapted to the soil and leaf litter environments,
+                                developing strong exoskeletons and breathing through spiracles and tracheal systems.
+                            </p>
+                        </section>
+                        <img src='Images/Myriapods1.png' class="imageFlexBox" id="page2img4" alt="Various Myriapods">
+                </div>
+            </section>
+            <!--The perception of Arthropods-->
+            <section class="page" id="page3">
+                <h2 class="description">
+                    Take a look at all the different places Arthropods have been across our culture and media!
+                </h2>
+                <div class="flexBoxDown">
+                    <div class="flexBoxRight">
+                        <!-- Arachne -->
+                        <div class="cardOuter">
+                            <div class="flipCard" id="flipCard1">
+                                <img src='Images/Arachne.webp' class="flipCardFront" alt="Arachne Myth">
+                                <article class="flipCardBack">
+                                    <h3>Arachne and the Loom of Fate</h3>
+                                    <p>
+                                        In Greek mythology, Arachne was a mortal weaver whose hubris led her to challenge the goddess Athena. After besting the goddess in a weaving contest, Arachne was transformed into a spider—marking one of the earliest tales connecting humans to arachnids. Her story is both a cautionary tale and a symbolic origin for our modern word “arachnid,” cementing the spider as a figure of skill, pride, and divine punishment in Western mythos.
+                                    </p>
+                                </article>
+                            </div>
+                        </div>
+                        <!-- Charlotte -->
+                        <div class="cardOuter">
+                            <div class="flipCard" id="flipCard2">
+                                <img src='Images/CharlottesWeb.jpg' class="flipCardFront" alt="Book Named Charlotte's Web">
+                                <article class="flipCardBack">
+                                    <h3>Charlotte’s Web: The Kindness of a Spider</h3>
+                                    <p>
+                                        Charlotte, the spider from E.B. White’s *Charlotte's Web*, is one of the most beloved arthropods in children's literature. Her intelligence, creativity, and compassion help save Wilbur the pig by weaving persuasive messages into her web. Charlotte challenges the traditional fear of spiders by portraying one as wise, articulate, and nurturing, forever changing how many children perceive these eight-legged creatures.
+                                    </p>
+                                </article>
+                            </div>
+                        </div>
+                        <!-- Ants in Popular Media -->
+                        <div class="cardOuter">
+                            <div class="flipCard" id="flipCard3">
+                                <img src='Images/AntMedia.jpg' class="flipCardFront" alt="Popular Movies featuring Ants">
+                                <article class="flipCardBack">
+                                    <h3>Ants: The Underdogs of Animation</h3>
+                                    <p>
+                                        From Pixar’s *A Bug’s Life* to DreamWorks’ *Antz*, ants have been portrayed as resilient and clever creatures that thrive through cooperation. These films anthropomorphize ant colonies to explore social themes like individuality, hierarchy, and rebellion. Their industrious nature and role as tiny heroes make them ideal protagonists in tales of perseverance.
+                                    </p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flexBoxRight">
+                        <!-- Bees in Popular Media -->
+                        <div class="cardOuter">
+                            <div class="flipCard" id="flipCard4">
+                                <img src='Images/BeeMovie.jpg' class="flipCardFront" alt="Popular movie named Bee Movie">
+                                <article class="flipCardBack">
+                                    <h3>Bees: Buzzing Between Comedy and Crisis</h3>
+                                    <p>
+                                        Bees in media oscillate between comic relief and ecological ambassadors. *The Bee Movie* gave us the bizarre yet memorable tale of a bee suing humanity, while documentaries and news stories stress their vital role in pollination and the growing concerns of colony collapse. Their cultural footprint spans humor, activism, and admiration.
+                                    </p>
+                                </article>
+                            </div>
+                        </div>
+                        <!-- Scarab Beetles -->
+                        <div class="cardOuter">
+                            <div class="flipCard" id="flipCard5">
+                                <img src='Images/ScarabBeetle.jpg' class="flipCardFront" alt="Scarab beetles, Egypts culture">
+                                <article class="flipCardBack">
+                                    <h3>Scarab Beetles: Symbols of Eternal Life</h3>
+                                    <p>
+                                        Revered in ancient Egypt, scarab beetles were seen as symbols of rebirth and the rising sun. Depicted frequently in amulets and tomb carvings, they were believed to guide souls through the afterlife. Their spiritual importance persists, making them one of the most iconic mythological arthropods in human history.
+                                    </p>
+                                </article>
+                            </div>
+                        </div>
+                        <!-- Mothra -->
+                        <div class="cardOuter">
+                            <div class="flipCard" id="flipCard6">
+                                <img src='Images/Mothra.avif' class="imageFlexBox flipCardFront" alt="Popular movie monster Mothra">
+                                <article class="flipCardBack">
+                                    <h3>Mothra: Guardian of Nature</h3>
+                                    <p>
+                                        A giant moth kaiju from the Godzilla franchise, Mothra stands out as both a destructive force and a divine protector. Often portrayed with themes of sacrifice and balance, Mothra has gained a reputation as a symbol of nature’s power, beauty, and wrath—contrasting the typical monstrous depiction of insects in cinema.
+                                    </p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flexBoxRight">
+                        <!-- Crab Rave -->
+                        <div class="cardOuter">
+                            <div class="flipCard" id="flipCard7">
+                                <img src='Images/CrabRave.jpeg' class="flipCardFront" alt="Popular Internet song with dancing crabs">
+                                <article class="flipCardBack">
+                                    <h3>Crab Rave: Arthropods in Internet Culture</h3>
+                                    <p>
+                                         *Crab Rave*, a viral music video and meme by Noisestorm, turned dancing crabs into symbols of ironic celebration. Often used to signal humorous 'good riddance' events, it represents a modern, digital age fascination with arthropods—now not feared or revered, but gleefully memed.
+                                    </p>
+                                </article>
+                            </div>
+                        </div>
+                        <!-- Historical: Chinese Silk and the Silkworm -->
+                        <div class="cardOuter">
+                            <div class="flipCard" id="flipCard8">
+                                <img src='Images/SilkFarm.jpg' class="flipCardFront" alt="Silk worm with cotton">
+                                <article class="flipCardBack">
+                                    <h3>Silkworms and the Birth of Chinese Silk</h3>
+                                    <p>
+                                        The humble silkworm revolutionized history through its role in silk production, central to ancient Chinese economy and culture. Legend tells of Empress Leizu discovering silk while sipping tea beneath a mulberry tree. These arthropods helped shape trade routes and luxury markets through the famous Silk Road.
+                                    </p>
+                                </article>
+                            </div>
+                        </div>
+                        <!-- Historical: Plague and the Flea -->
+                        <div class="cardOuter">
+                            <div class="flipCard" id="flipCard9">
+                                <img src='Images/BlackPlague.avif' class="flipCardFront" alt="Image depicting a black plague riddled place">
+                                <article class="flipCardBack">
+                                    <h3>Fleas and the Black Death</h3>
+                                    <p>
+                                        Fleas—tiny arthropods often overlooked—played a devastating role in history as vectors of the Black Death. Transmitted via infected rats and fleas, the plague reshaped Europe, leading to widespread mortality, economic collapse, and long-term societal changes. Their legacy is a grim reminder of arthropods' capacity to impact civilization.
+                                    </p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--The treatment of Arthropods-->
+            <section class="page" id="page4">
+                <h2 class="description">
+                    Arthropods make up the largest and most diverse group of animals on Earth, so it is no surprise that humans interact with them in vastly different manners.
+                </h2>
+                <div class="flexBoxDown">
+                    <!--Crustaceans-->
+                    <div class="flexBoxRight">
+                        <section class="textFlexBox">
+                            <h3>Crustaceans, our favourite delicacy</h3>
+                            <p>
+                                Crustaceans, such as crabs, lobsters, shrimp, and prawns, are widely consumed across the globe and often considered delicacies. They're likely what comes to mind when you hear the concept of eating Arthropods.
+                                <br><br>
+                                Found in both marine and freshwater environments, they’re staples in cuisines from East Asia to the Mediterranean. Their rich, meaty texture and flavor make them central to countless traditional dishes, and their high protein content adds to their appeal.
+                            </p>
+                        </section>
+                        <div>
+                            <img src='Images/ChiliCrab.webp' class="imageFlexBox" alt="Chili Crab">
+                            <p class="description">Chili Crab, one of Singapore's many signature dishes</p>
+                        </div>
+                    </div>
+                    <!--Hexapods-->
+                    <div class="flexBoxLeft">
+                        <section class="textFlexBox">
+                            <h3>Insects can be eaten?!?</h3>
+                            <p>
+                                Insects, although less common in Western diets, are widely eaten in parts of Asia, Africa, and Central and South America. Species like crickets, grasshoppers, and mealworms are rich in protein, vitamins, and minerals, and are often roasted, fried, or ground into flour. As sustainable food sources, insects are gaining global attention for their low environmental impact compared to traditional livestock.
+                            </p>
+                        </section>
+                        <div>
+                            <img src='Images/CricketFood.jpg' class="imageFlexBox" alt="A plate of crickets">
+                            <p class="description">A plate of crickets</p>
+                        </div>
+                    </div>
+                    <!--Spiders-->
+                    <div class="flexBoxRight">
+                        <section class="textFlexBox">
+                            <h3>8 limbs of pure protein</h3>
+                            <p>                        
+                                Arachnids, like scorpions and tarantulas, are more niche but still consumed in various cultures. In some parts of Southeast Asia, deep-fried tarantulas are a street food attraction, valued both for their novelty and crunchy texture. Scorpions, too, are eaten in similar fashion, sometimes even skewered and served whole.
+                            </p>
+                        </section>
+                        <div>
+                            <img src='Images/DriedScorpion.webp' class="imageFlexBox" alt="Fried Scorpions">
+                            <p class="description">Fried, skewered scorpions along with some roasted insects</p>
+                        </div>
+                    </div>
+                    <!--Centipedes-->
+                    <div class="flexBoxLeft">
+                        <section class="textFlexBox">
+                            <h3>Healing Bugs</h3>
+                            <p>
+                                Myriapods, such as centipedes, are rarely eaten but can still be found in some regional dishes or medicinal preparations, particularly in parts of China. Their strong flavor and unusual appearance make them a far less common choice, but they are still a part of the broader conversation on edible arthropods. Some practicecs put them in jars of alchohol to ferment, and are claimed to have medicinal properties.
+                            </p>
+                        </section>
+                        <div>
+                            <img src='Images/CentipedeMedicine.webp' class="imageFlexBox" alt="Fermented Centipedes">
+                            <p class="description">Centipedes soaked in alchohol</p>
+                        </div>
+                    </div>
+                    <!--Summary-->
+                    <h2 class="description">So, why are some Arthropods, namely crustaceans, are regarded as a delicacy world wide, while most others are shunned and avoided?</h2>
+                    <section class="textBox">
+                        <h3>
+                            There are many reasons, but the most likely reasons are that:
+                        </h3>
+                        <ol>
+                            <li>
+                                Crustaceans, the most commonly eaten, are usually found in water,
+                                a complately different world from us, whereas most of the other
+                                arthropods live on land like us.<br><br>
+                            </li>
+                            <li>
+                                Due to their water environment, Crustaceans are usually slow and
+                                not threathening looking. They are also bigger, making them much
+                                easier for humans to eat them. Whereas with many of the other
+                                arthropods, they live on land, flying around and crawling very fast with their small bodies,
+                                which scares us.<br><br>
+                            </li>
+                            <li>
+                                Many crustaceans are not poisonous, whereas most of the land arthropods commonly are
+                                either venomous or poisonous, discouraging us from eating them.<br><br>
+                            </li>
+                            <li>
+                                The small size of the other arthropods make it not worth dissecting them like we do for
+                                crabs and prawns and lobsters, resulting in us eating them whole should we try to, their
+                                tough outer chitin making them taste bitter. However, many insects, without their shells,
+                                actually tend to taste similar to our familiar shellfish!<br><br>
+                            </li>
+                        </ol>
+                    </section>
+                    <!--Video-->
+                    <article>
+                        <h2 class="description">Bugs are Seafood?</h2>
+                        <iframe src="https://www.youtube.com/embed/bt7nC52GrmM?si=Qsw2MpITtQfipLVg" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <p class="description">A renowned food Youtuber, doing an analysis of the eating of insects</p>
+                    </article>
+                </div>
+            </section>
+            <!--Game-->
+            <section class="page" id="page5">
+                <img src='Images/GameBackground.webp' id="gameBackgroundImage" alt="Backyard background for game">
+                <p id="moneyDisplay">Money: $15</p>
+                <h2 id="gameTitle">
+                    Pet safe backyard!
+                </h2>
+                <button id="buyMenuButton">Shop</button>
+                <form id="buyMenu">
+                    <fieldset>
+                        <legend>Choose a pet to buy:</legend>
+                        <label>
+                        <input type="radio" name="petType" value="Crab" checked>
+                        Crab(15)
+                        </label>
+                        <br>
+                        <label>
+                        <input type="radio" name="petType" value="Scorpion">
+                        Scorpion(100)
+                        </label>
+                        <br>
+                        <label>
+                        <input type="radio" name="petType" value="Spider">
+                        Spider(750)
+                        </label>
+                        <br>
+                        <label>
+                        <input type="radio" name="petType" value="Centipede">
+                        Centipede(1500)
+                        </label>
+                        <br>
+                        <label>
+                        <input type="radio" name="petType" value="Bee">
+                        Bee(3500)
+                        </label>
+                        <br>
+                        <input type="text" id="petNameInput" placeholder="Cute pet name!" required>
+                        <button type="submit" id="buyPet">Buy</button>
+                    </fieldset>
+                </form>
+            </section>
+        </main>
+    </body>
+</html>
