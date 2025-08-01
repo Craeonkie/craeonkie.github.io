@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sigma Arthropods</title>
         <link href="style.css" type="text/css" rel="stylesheet">
-        <script src="index.js" defer></script>
+        <script src="main.js" defer></script>
     </head>
 
     <body>
@@ -30,21 +30,18 @@
             <!--Homepage-->
             <section class="page" id="page1">
                 <!--Homepage Screen-->
-                <section>
-                    <!--Title-->
-                    <h2 class="title" id="homePageTitle">THE WORLD OF<br>ARTHROPODS</h2>
-                    <!--Background Images-->
-                    <div class="slideContainer">
-                        <img src="Images/Bee1.jpeg" alt="A Bee" class="slide">
-                        <img src="Images/Butterfly1.avif" alt="A Butterfly" class="slide">
-                        <img src="Images/Centipede1.webp" alt="A Centipede" class="slide">
-                        <img src="Images/Crab1.jpg" alt="A Crab" class="slide">
-                        <img src="Images/Scorpion1.jpg" alt="A Scorpion" class="slide">
-                        <img src="Images/Spider1.jpg" alt="A Spider" class="slide">
-                    </div>
-                </section>
+                <h2 class="title" id="homePageTitle">THE WORLD OF<br>ARTHROPODS</h2>
+                <!--Background Images-->
+                <div class="slideContainer">
+                    <img src="Images/Bee1.jpeg" alt="A Bee" class="slide">
+                    <img src="Images/Butterfly1.avif" alt="A Butterfly" class="slide">
+                    <img src="Images/Centipede1.webp" alt="A Centipede" class="slide">
+                    <img src="Images/Crab1.jpg" alt="A Crab" class="slide">
+                    <img src="Images/Scorpion1.jpg" alt="A Scorpion" class="slide">
+                    <img src="Images/Spider1.jpg" alt="A Spider" class="slide">
+                </div>
                 <!--Main Content of this page-->
-                <section class="flexBoxDown" id="page1Content">
+                <div class="flexBoxDown" id="page1Content">
                     <h2 class="description">
                         Discover how these creatures have influenced our culture, diets, and even our innate fears themselves!
                     </h2>
@@ -77,10 +74,15 @@
                         </section>
                         <img src='Images/BugsAreSeafood.png' class="imageFlexBox" id="goTo3" alt="Thumbnail of a Youtube video from Adam Ragusea, popular Youtuber">
                     </div>
-                </section>
+                    <section class="centeredBox" id="websiteQR">
+                        <h3 id="QRDescription">The QR Code for this website!</h3>
+                        <img src='Images/QRCode.png' class="centeredBox" alt="QR code for this website">
+                    </section>
+                </div>
             </section>
             <!--Groups of Arthropods-->
             <section class="page" id="page2">
+                <h2 class="description">A variety of different Arthropods live on this planet. Here are the 4 most commonly known groups.</h2>
                 <!--Arachnids-->
                 <div class="flexBoxRight">
                         <section class="textFlexBox">
@@ -150,12 +152,10 @@
             </section>
             <!--The perception of Arthropods-->
             <section class="page" id="page3">
+                <h2 class="description">
+                    Take a look at all the different places Arthropods have been across our culture and media!
+                </h2>
                 <div class="flexBoxDown">
-                    <section>
-                        <h2 class="description">
-                            Take a look at all the different places Arthropods have been across our culture and media!
-                        </h2>
-                    </section>
                     <div class="flexBoxRight">
                         <!-- Arachne -->
                         <div class="cardOuter">
@@ -274,10 +274,10 @@
             </section>
             <!--The treatment of Arthropods-->
             <section class="page" id="page4">
+                <h2 class="description">
+                    Arthropods make up the largest and most diverse group of animals on Earth, so it is no surprise that humans interact with them in vastly different manners.
+                </h2>
                 <div class="flexBoxDown">
-                    <h2 class="description">
-                        Arthropods make up the largest and most diverse group of animals on Earth, so it is no surprise that humans interact with them in vastly different manners.
-                    </h2>
                     <!--Crustaceans-->
                     <div class="flexBoxRight">
                         <section class="textFlexBox">
@@ -288,10 +288,10 @@
                                 Found in both marine and freshwater environments, they’re staples in cuisines from East Asia to the Mediterranean. Their rich, meaty texture and flavor make them central to countless traditional dishes, and their high protein content adds to their appeal.
                             </p>
                         </section>
-                        <section>
+                        <div>
                             <img src='Images/ChiliCrab.webp' class="imageFlexBox" alt="Chili Crab">
                             <p class="description">Chili Crab, one of Singapore's many signature dishes</p>
-                        </section>
+                        </div>
                     </div>
                     <!--Hexapods-->
                     <div class="flexBoxLeft">
@@ -301,10 +301,10 @@
                                 Insects, although less common in Western diets, are widely eaten in parts of Asia, Africa, and Central and South America. Species like crickets, grasshoppers, and mealworms are rich in protein, vitamins, and minerals, and are often roasted, fried, or ground into flour. As sustainable food sources, insects are gaining global attention for their low environmental impact compared to traditional livestock.
                             </p>
                         </section>
-                        <section>
+                        <div>
                             <img src='Images/CricketFood.jpg' class="imageFlexBox" alt="A plate of crickets">
                             <p class="description">A plate of crickets</p>
-                        </section>
+                        </div>
                     </div>
                     <!--Spiders-->
                     <div class="flexBoxRight">
@@ -314,10 +314,10 @@
                                 Arachnids, like scorpions and tarantulas, are more niche but still consumed in various cultures. In some parts of Southeast Asia, deep-fried tarantulas are a street food attraction, valued both for their novelty and crunchy texture. Scorpions, too, are eaten in similar fashion, sometimes even skewered and served whole.
                             </p>
                         </section>
-                        <section>
+                        <div>
                             <img src='Images/DriedScorpion.webp' class="imageFlexBox" alt="Fried Scorpions">
                             <p class="description">Fried, skewered scorpions along with some roasted insects</p>
-                        </section>
+                        </div>
                     </div>
                     <!--Centipedes-->
                     <div class="flexBoxLeft">
@@ -327,17 +327,17 @@
                                 Myriapods, such as centipedes, are rarely eaten but can still be found in some regional dishes or medicinal preparations, particularly in parts of China. Their strong flavor and unusual appearance make them a far less common choice, but they are still a part of the broader conversation on edible arthropods. Some practicecs put them in jars of alchohol to ferment, and are claimed to have medicinal properties.
                             </p>
                         </section>
-                        <section>
+                        <div>
                             <img src='Images/CentipedeMedicine.webp' class="imageFlexBox" alt="Fermented Centipedes">
                             <p class="description">Centipedes soaked in alchohol</p>
-                        </section>
+                        </div>
                     </div>
                     <!--Summary-->
                     <h2 class="description">So, why are some Arthropods, namely crustaceans, are regarded as a delicacy world wide, while most others are shunned and avoided?</h2>
                     <section class="textBox">
-                        <h2>
+                        <h3>
                             There are many reasons, but the most likely reasons are that:
-                        </h2>
+                        </h3>
                         <ol>
                             <li>
                                 Crustaceans, the most commonly eaten, are usually found in water,
@@ -364,17 +364,20 @@
                         </ol>
                     </section>
                     <!--Video-->
-                    <section>
+                    <article>
+                        <h2 class="description">Bugs are Seafood?</h2>
                         <iframe src="https://www.youtube.com/embed/bt7nC52GrmM?si=Qsw2MpITtQfipLVg" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         <p class="description">A renowned food Youtuber, doing an analysis of the eating of insects</p>
-                    </section>
+                    </article>
                 </div>
             </section>
-
             <!--Game-->
             <section class="page" id="page5">
                 <img src='Images/GameBackground.webp' id="gameBackgroundImage" alt="Backyard background for game">
                 <p id="moneyDisplay">Money: $15</p>
+                <h2 id="gameTitle">
+                    Pet safe backyard!
+                </h2>
                 <button id="buyMenuButton">Shop</button>
                 <form id="buyMenu">
                     <fieldset>
