@@ -1,0 +1,14 @@
+{
+    "name": "The World of Arthropods",
+    "short_name": "TWOA",
+    "start_url": "./",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#00FF00",
+    "icons": [
+    { "src": "Images/AppIcon.png",
+    "sizes": "192x192",
+    "type": "image/png"
+    }
+    ]
+}
