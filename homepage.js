@@ -21,6 +21,23 @@ if (Array.isArray(content.games) && content.games.length) {
     const description = document.createElement('p');
     description.textContent = game.description || '';
     card.append(title, description);
+    const contributions = Array.isArray(game.contributions)
+      ? game.contributions.filter(value => typeof value === 'string' && value.trim())
+      : [];
+    if (contributions.length) {
+      const section = document.createElement('section');
+      section.className = 'game-contribution';
+      const heading = document.createElement('h4');
+      heading.textContent = 'My contribution';
+      const items = document.createElement('ul');
+      for (const contribution of contributions) {
+        const item = document.createElement('li');
+        item.textContent = contribution;
+        items.append(item);
+      }
+      section.append(heading, items);
+      card.append(section);
+    }
     const url = safeUrl(game.url);
     if (url) {
       const link = document.createElement('a');
@@ -90,3 +107,54 @@ if (milestones.length) {
   list.hidden = false;
   document.getElementById('timeline-empty').hidden = true;
 }
+
+// Hash links and keyboard navigation share the same tab selection.
+const portfolioTabs = Array.from(document.querySelectorAll('.portfolio-tabs [role="tab"]'));
+const panelIds = portfolioTabs.map(tab => tab.getAttribute('aria-controls'));
+function selectPortfolioTab(id, moveFocus = false) {
+  if (!panelIds.includes(id)) id = 'about';
+  for (const tab of portfolioTabs) {
+    const panelId = tab.getAttribute('aria-controls');
+    const selected = panelId === id;
+    tab.setAttribute('aria-selected', String(selected));
+    tab.tabIndex = selected ? 0 : -1;
+    const panel = document.getElementById(panelId);
+    panel.setAttribute('role', 'tabpanel');
+    panel.setAttribute('aria-labelledby', tab.id);
+    panel.tabIndex = 0;
+    panel.hidden = !selected;
+    if (selected && moveFocus) tab.focus();
+  }
+}
+portfolioTabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => {
+    const id = tab.getAttribute('aria-controls');
+    selectPortfolioTab(id);
+    history.replaceState(null, '', '#' + id);
+  });
+  tab.addEventListener('keydown', event => {
+    let next;
+    if (event.key === 'ArrowRight') next = (index + 1) % portfolioTabs.length;
+    if (event.key === 'ArrowLeft') next = (index - 1 + portfolioTabs.length) % portfolioTabs.length;
+    if (event.key === 'Home') next = 0;
+    if (event.key === 'End') next = portfolioTabs.length - 1;
+    if (next === undefined) return;
+    event.preventDefault();
+    const id = portfolioTabs[next].getAttribute('aria-controls');
+    selectPortfolioTab(id, true);
+    history.replaceState(null, '', '#' + id);
+  });
+});
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  const id = link.getAttribute('href').slice(1);
+  if (!panelIds.includes(id)) return;
+  link.addEventListener('click', event => {
+    event.preventDefault();
+    selectPortfolioTab(id);
+    history.pushState(null, '', '#' + id);
+    document.querySelector('.portfolio-tabs').scrollIntoView({block:'start'});
+    document.getElementById('tab-' + id).focus({preventScroll:true});
+  });
+});
+window.addEventListener('hashchange', () => selectPortfolioTab(location.hash.slice(1)));
+selectPortfolioTab(location.hash.slice(1));
