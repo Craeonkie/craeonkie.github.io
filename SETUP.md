@@ -1,7 +1,9 @@
 # Website
 
-The homepage contains empty About, Games, and Links sections. All personal content is blank in `content.js`. Edit that file when you are ready to add your name, biography, games, and links. The page works as static files, without installation or a build step.
+A responsive portfolio with charcoal, warm white, and violet styling. The biography, tagline, and game entries are blank. The supplied Craeonkie name and itch.io link are included.
 
-The previous homepage is preserved in the repository as `arthropods.html`. Its original styles, scripts, and assets are retained.
+Edit content.js to add personal details, games, and links. Games accept title, description, and url. Links accept label and url. Empty game entries show decorative spaces only, with no fake projects or inactive play buttons.
 
-For GitHub Pages, publish the repository's main branch from its root directory using Settings → Pages → Deploy from a branch.
+No installation or build is needed. Open index.html directly, or serve the folder locally.
+
+The original arthropod website remains at arthropods.html with its original assets. Commit and push the updated homepage files to your GitHub Pages publishing branch to publish this design.

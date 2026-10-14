@@ -39,3 +39,54 @@ for (const item of Array.isArray(content.links) ? content.links : []) {
   link.textContent = item.label + ' ↗';
   document.getElementById('link-list').append(link);
 }
+
+// Move only decorative layers; text and controls remain stationary.
+const hero = document.querySelector('.hero');
+const pointerMotion = window.matchMedia('(prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine)');
+let motionFrame = 0;
+let pointerX = 0;
+let pointerY = 0;
+function resetBackground() {
+  cancelAnimationFrame(motionFrame);
+  motionFrame = 0;
+  hero.style.removeProperty('--pointer-x');
+  hero.style.removeProperty('--pointer-y');
+}
+hero.addEventListener('pointermove', (event) => {
+  if (!pointerMotion.matches || event.pointerType === 'touch') return;
+  const bounds = hero.getBoundingClientRect();
+  pointerX = ((event.clientX - bounds.left) / bounds.width - .5) * 36;
+  pointerY = ((event.clientY - bounds.top) / bounds.height - .5) * 28;
+  if (motionFrame) return;
+  motionFrame = requestAnimationFrame(() => {
+    hero.style.setProperty('--pointer-x', `${pointerX}px`);
+    hero.style.setProperty('--pointer-y', `${pointerY}px`);
+    motionFrame = 0;
+  });
+});
+hero.addEventListener('pointerleave', resetBackground);
+window.addEventListener('blur', resetBackground);
+pointerMotion.addEventListener('change', resetBackground);
+
+// Keep milestones in the supplied order, allowing dates or academic terms.
+const milestones = Array.isArray(content.timeline)
+  ? content.timeline.filter(item => item && typeof item.title === 'string' && item.title.trim())
+  : [];
+if (milestones.length) {
+  const list = document.getElementById('timeline-list');
+  for (const milestone of milestones) {
+    const item = document.createElement('li');
+    const date = document.createElement('p');
+    date.className = 'milestone-date';
+    date.textContent = milestone.date || '';
+    const title = document.createElement('h3');
+    title.textContent = milestone.title;
+    const description = document.createElement('p');
+    description.className = 'milestone-description';
+    description.textContent = milestone.description || '';
+    item.append(date, title, description);
+    list.append(item);
+  }
+  list.hidden = false;
+  document.getElementById('timeline-empty').hidden = true;
+}
