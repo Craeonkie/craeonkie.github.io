@@ -4,6 +4,14 @@ for (const key of ['name', 'tagline', 'bio']) {
   document.getElementById(key).textContent = content[key] || '';
 }
 if (content.name) document.title = content.name;
+const nameElement = document.getElementById('name');
+const nameParts = (content.name || '').trim().split(/\s+/);
+if (nameParts.length > 1) {
+  const accent = document.createElement('span');
+  accent.className = 'name-accent';
+  accent.textContent = nameParts.pop();
+  nameElement.replaceChildren(document.createTextNode(nameParts.join(' ') + ' '), accent);
+}
 function safeUrl(value) {
   try {
     const url = new URL(value);
@@ -21,28 +29,27 @@ if (Array.isArray(content.games) && content.games.length) {
     const description = document.createElement('p');
     description.textContent = game.description || '';
     card.append(title, description);
-    const contributions = Array.isArray(game.contributions)
-      ? game.contributions.filter(value => typeof value === 'string' && value.trim())
-      : [];
-    if (contributions.length) {
-      const section = document.createElement('section');
-      section.className = 'game-contribution';
-      const heading = document.createElement('h4');
-      heading.textContent = 'My contribution';
-      const items = document.createElement('ul');
-      for (const contribution of contributions) {
-        const item = document.createElement('li');
-        item.textContent = contribution;
-        items.append(item);
-      }
-      section.append(heading, items);
-      card.append(section);
+    const images = Array.isArray(game.images) ? game.images.filter(image => image && typeof image.src === 'string' && image.src.trim()) : [];
+    if (images.length) {
+      const galleryButton = document.createElement('button');
+      galleryButton.type = 'button';
+      galleryButton.className = 'game-gallery-button';
+      galleryButton.setAttribute('aria-label', 'My contribution to ' + (game.title || 'this game'));
+      const cover = document.createElement('img');
+      cover.src = images[0].src;
+      cover.alt = images[0].alt || (game.title || 'Game') + ' screenshot';
+      cover.loading = 'lazy';
+      const label = document.createElement('span');
+      label.textContent = 'What did I contribute? ↗';
+      galleryButton.append(cover, label);
+      galleryButton.addEventListener('click', () => openGameContribution(game));
+      card.prepend(galleryButton);
     }
     const url = safeUrl(game.url);
     if (url) {
       const link = document.createElement('a');
       link.href = url;
-      link.textContent = 'Play ↗';
+      link.textContent = 'Play on itch.io ↗';
       card.append(link);
     }
     list.append(card);
@@ -97,7 +104,15 @@ if (milestones.length) {
     date.className = 'milestone-date';
     date.textContent = milestone.date || '';
     const title = document.createElement('h3');
-    title.textContent = milestone.title;
+    const schoolUrl = safeUrl(milestone.url);
+    if (schoolUrl) {
+      const schoolLink = document.createElement('a');
+      schoolLink.href = schoolUrl;
+      schoolLink.textContent = milestone.title + ' ↗';
+      title.append(schoolLink);
+    } else {
+      title.textContent = milestone.title;
+    }
     const description = document.createElement('p');
     description.className = 'milestone-description';
     description.textContent = milestone.description || '';
@@ -158,3 +173,41 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 });
 window.addEventListener('hashchange', () => selectPortfolioTab(location.hash.slice(1)));
 selectPortfolioTab(location.hash.slice(1));
+
+
+
+// Native dialog supports Escape, focus containment, and returning to the opener.
+const contributionDialog = document.createElement('dialog');
+contributionDialog.className = 'game-gallery contribution-dialog';
+contributionDialog.setAttribute('aria-labelledby','contribution-title');
+contributionDialog.innerHTML = '<div class="gallery-heading"><h2 id="contribution-title"></h2><button type="button" class="gallery-close" aria-label="Close contribution details">Close ×</button></div><h3>My contribution</h3><div class="contribution-body"></div>';
+document.body.append(contributionDialog);
+let contributionOpener;
+function openGameContribution(game) {
+  contributionOpener=document.activeElement;
+  contributionDialog.querySelector('h2').textContent=game.title || 'Game';
+  const body=contributionDialog.querySelector('.contribution-body');
+  body.replaceChildren();
+  const entries=Array.isArray(game.contributions) ? game.contributions.filter(value=>typeof value==='string' && value.trim()) : [];
+  if(entries.length){
+    const summary=document.createElement('p');
+    summary.textContent=entries.join(' ');
+    body.append(summary);
+  }else{
+    const empty=document.createElement('p');
+    empty.textContent='Contribution details coming soon.';
+    body.append(empty);
+  }
+  contributionDialog.showModal();
+  document.body.classList.add('gallery-open');
+  contributionDialog.querySelector('button').focus();
+}
+contributionDialog.querySelector('button').addEventListener('click',()=>contributionDialog.close());
+contributionDialog.addEventListener('click',event=>{
+  const bounds=contributionDialog.getBoundingClientRect();
+  if(event.target===contributionDialog && (event.clientX<bounds.left || event.clientX>bounds.right || event.clientY<bounds.top || event.clientY>bounds.bottom))contributionDialog.close();
+});
+contributionDialog.addEventListener('close',()=>{
+  document.body.classList.remove('gallery-open');
+  contributionOpener?.focus();
+});
